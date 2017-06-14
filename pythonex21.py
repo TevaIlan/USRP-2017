@@ -10,3 +10,20 @@ for i in range(0,6):
 			a2[i-1,j-1]=i
 print(a1)
 print(a2)
+
+a3=np.zeros((16,1))
+a3[0]=a3[1]=1
+for i in range(2,16):
+	a3[i]=a3[i-1]+a3[i-2]
+
+a4=np.zeros((16,64))
+for i in range(0,64):
+	for j in range(0,16):
+		a4[j,i]=a3[j]
+
+a4_even=[]
+for i in range(0,16):
+	for j in range(0,64):
+		if a4[i,j]/2.0==int(a4[i,j]/2):
+			a4_even.append(a4[i,j])
+print(a4_even)
